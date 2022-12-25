@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+
+import {useState} from "react";
+import {validateNif} from "./utils/validateNif";
 
 function App() {
+  const [nif, setNif] = useState("");
+  const [result, setResult] = useState("");
+  
+  const handleSubmit = () => {
+    setResult(validateNif(nif));
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form className="nif-form" onSubmit={handleSubmit}>
+        <label htmlFor="nif">NIF</label>
+        <input value={nif} onChange={e => setNif(e.target.value)} placeholder="Inserir nif..." type="number" maxLength={9} />
+      </form>
+      <div className="nif-result">{result}</div>
     </div>
   );
 }
