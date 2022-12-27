@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <form className="nif-form" onSubmit={handleSubmit}>
         <label htmlFor="nif">NIF</label>
-        <input value={nif} onChange={e => setNif(e.target.value)} placeholder="Inserir nif..." type="number" maxLength={9} />
+        <input value={nif} onChange={e => setNif(e.target.value)} placeholder="Inserir nif..." type="number" maxLength="9" />
       </form>
       <div className="nif-result">{result}</div>
     </div>
