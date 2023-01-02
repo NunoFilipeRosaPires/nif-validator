@@ -6,7 +6,8 @@ function App() {
   const [nif, setNif] = useState("");
   const [result, setResult] = useState("");
   
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     setResult(validateNif(nif));
   }
   
